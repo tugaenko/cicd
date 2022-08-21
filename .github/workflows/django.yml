@@ -44,3 +44,8 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ github.token }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
